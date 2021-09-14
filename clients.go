@@ -53,12 +53,12 @@ func write(conn net.Conn, clientName string){
 	for {
 		inputReader := bufio.NewReader(os.Stdin)
 		input, _ := inputReader.ReadString('\n')
-		trimmedInput := strings.Trim(input, "\r\n")
+		msg := strings.Trim(input, "\r\n")
 
-		if trimmedInput == "exit" {
+		if msg == "exit" {
 			return
 		}
-		conn.Write([]byte(fmt.Sprintf("%s : %s\n", clientName, trimmedInput)))
+		conn.Write([]byte(fmt.Sprintf("%s : %s\n", clientName, msg)))
 
 	}
 }
