@@ -57,6 +57,10 @@ func write(conn net.Conn, clientName string){
 
 		if msg == "exit" {
 			return
+		}else if msg == " " {
+			continue
+		}else if msg == ""{
+			continue
 		}
 		conn.Write([]byte(fmt.Sprintf("%s : %s\n", clientName, msg)))
 
